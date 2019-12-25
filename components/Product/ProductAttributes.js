@@ -6,13 +6,13 @@ import { useRouter } from "next/router";
 
 function ProductAttributes({ description, _id }) {
   const [modal, setModal] = React.useState(false);
-  const router = useRouter;
+  const router = useRouter();
 
   async function handleDelete() {
     const url = `${baseUrl}/api/product`;
     const payload = { params: { _id } };
-    const response = await axios.delete(url, payload);
-    console.log(response);
+    await axios.delete(url, payload);
+    router.push("/");
   }
 
   return (

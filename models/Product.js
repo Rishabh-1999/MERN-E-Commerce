@@ -14,7 +14,7 @@ const ProductSchema = new mongoose.Schema({
     unique: true,
     default: shortid.generate()
   },
-  desciption: { type: String, required: true },
+  description: { type: String, required: true },
   mediaUrl: { type: String, required: true }
 });
 
