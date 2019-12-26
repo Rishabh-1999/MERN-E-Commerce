@@ -1,5 +1,5 @@
 function catchErrors(error, displayError) {
-  let errorMsg;
+  let errorMsg = "";
   if (error.respond) {
     errorMsg = error.respond.data;
     console.error("Error Response", errorMsg);

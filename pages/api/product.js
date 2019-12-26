@@ -41,7 +41,8 @@ async function handlePOSTRequest(req, res) {
       mediaUrl
     }).save();
     res.status(201).json(product);
-  } catch (err) {
+  } catch (error) {
+    console.error(error);
     res.status(500).send("Error Creating product");
   }
 }

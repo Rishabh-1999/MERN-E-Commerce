@@ -63,6 +63,7 @@ function CreateProduct() {
     try {
       event.preventDefault();
       setLoading(true);
+      setError("");
       const mediaUrl = await handleImageUpload();
       const url = `${baseUrl}/api/product`;
       const { name, price, description } = product;
@@ -96,7 +97,7 @@ function CreateProduct() {
         success={sucess}
         onSubmit={handleSubmit}
       >
-        <Message error header="Opps!!" content={error} />
+        <Message error header="Opps!!" content={error.response} />
         <Message
           success
           icon="check"
