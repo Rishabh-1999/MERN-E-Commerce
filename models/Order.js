@@ -1,6 +1,8 @@
 import mongoose from "mongoose";
+import User from "../models/User";
+import Product from "../models/Product";
 
-const { ObjectId } = mongoose.Schema.Types;
+const { ObjectId, String, Number } = mongoose.Schema.Types;
 
 const OrderSchema = new mongoose.Schema(
   {

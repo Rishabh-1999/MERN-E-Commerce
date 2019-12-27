@@ -1,5 +1,5 @@
 function formatDate(date) {
-  return new Date(date).toLocaleDateString("en-IN");
+  return new Date(date).toLocaleDateString("en-US");
 }
 
 export default formatDate;
