@@ -29,7 +29,10 @@ async function handleGetRequest(req, res) {
     return res.status(401).send("No authorization token");
   }
   try {
-    const { userId } = jwt.verify(req.headers.authorization, "IAmBatman");
+    const { userId } = jwt.verify(
+      req.headers.authorization,
+      process.env.JWT_SECRET
+    );
     const cart = await Cart.findOne({ user: userId }).populate({
       path: "products.product",
       model: "Product"
@@ -47,7 +50,10 @@ async function handlePutRequest(req, res) {
     return res.status(401).send("No authorization token");
   }
   try {
-    const { userId } = jwt.verify(req.headers.authorization, "IAmBatman");
+    const { userId } = jwt.verify(
+      req.headers.authorization,
+      process.env.JWT_SECRET
+    );
     //Get user cart based on userId
     const cart = await Cart.findOne({ user: userId });
     //check if product already exists
@@ -79,7 +85,10 @@ async function handleDeleteRequest(req, res) {
   }
   const { productId } = req.query;
   try {
-    const { userId } = jwt.verify(req.headers.authorization, "IAmBatman");
+    const { userId } = jwt.verify(
+      req.headers.authorization,
+      process.env.JWT_SECRET
+    );
     const cart = await Cart.findOneAndUpdate(
       { user: userId },
       { $pull: { products: { product: productId } } },

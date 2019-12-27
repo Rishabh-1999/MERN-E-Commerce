@@ -3,7 +3,10 @@ import jwt from "jsonwebtoken";
 
 export default async (req, res) => {
   try {
-    const { userId } = jwt.verify(req.headers.authorization, "IAmBatman");
+    const { userId } = jwt.verify(
+      req.headers.authorization,
+      process.env.JWT_SECRET
+    );
     const users = await User.find({ _id: { $ne: userId } }).sort({
       name: "asc"
     });
