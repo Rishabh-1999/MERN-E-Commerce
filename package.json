@@ -1,7 +1,7 @@
 {
-  "name": "react-reserve",
+  "name": "e-commerce",
   "version": "1.0.0",
-  "description": "Project for MERN Stack - The Complete Guide",
+  "description": "A E-Commerce Website",
   "main": "index.js",
   "scripts": {
     "dev": "next",

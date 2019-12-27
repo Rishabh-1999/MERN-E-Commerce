@@ -10,10 +10,7 @@ connectDb();
 
 export default async (req, res) => {
   const { name, email, password } = req.body;
-  console.log("data");
-  console.log(name);
-  console.log(email);
-  console.log(password);
+
   try {
     // 1) validate name / email / password
     if (!isLength(name, { min: 3, max: 10 })) {
@@ -31,7 +28,6 @@ export default async (req, res) => {
         .send(`User Already Exist with emailid of ${email}`);
     }
     // 3) hash password
-    console.log(password);
     const hash = await bcrypt.hash(password, 10);
     // 4) create user
     const newUser = await new User({
@@ -39,7 +35,6 @@ export default async (req, res) => {
       email,
       password: hash
     }).save();
-    console.log({ newUser });
 
     await new Cart({ user: newUser._id }).save();
 

@@ -1,7 +1,6 @@
 import { Card } from "semantic-ui-react";
 import react from "react";
 function ProductList({ products }) {
-  //console.log(products);
   function mapProductstoItems(products) {
     return products.map(product => ({
       header: product.name,

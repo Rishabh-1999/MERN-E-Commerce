@@ -52,7 +52,6 @@ class MyApp extends App {
 
   syncLogout = event => {
     if (event.key === "logout") {
-      console.log("logged out");
       Router.push("/login");
     }
   };

@@ -29,7 +29,6 @@ function Cart({ products, user }) {
       setLoading(true);
       const url = `${baseUrl}/api/checkout`;
       const token = await cookie.get("token");
-      console.log(token);
       const payload = {
         paymentData: paymentData
       };
@@ -37,7 +36,7 @@ function Cart({ products, user }) {
       const response = await axios.post(url, payload, headers);
       setSuccess(true);
     } catch (error) {
-      console.log(error);
+      console.error(error);
       catchErros(error, window.alert);
     } finally {
       setLoading(false);
