@@ -5,7 +5,7 @@ import Cart from "../../models/Cart";
 import Order from "../../models/Order";
 import calculateCartTotal from "../../utils/calculateCartTotal";
 
-const stripe = Stripe("sk_test_u3vk0BwLV5kqTV4sb7jqAmpB00xo5U6Fex");
+const stripe = Stripe(process.env.STRIPE_SECERT_KEY);
 
 export default async (req, res) => {
   if (!("authorization" in req.headers)) {
